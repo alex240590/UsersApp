@@ -10,7 +10,7 @@ import java.io.PrintWriter;
 import java.sql.*;
 
 
-public class UserServlet extends HttpServlet {
+public class DeleteUserServlet extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException {
 
@@ -18,7 +18,9 @@ public class UserServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+        response.setContentType("text/html");
         PrintWriter pw = response.getWriter();
+        String nameuser = request.getParameter("nameuser");
 
         try {
             Class.forName("org.postgresql.Driver");
@@ -32,21 +34,17 @@ public class UserServlet extends HttpServlet {
                     "postgres",
                     "root");
 
-            Statement stmt = connection.createStatement();
-            ResultSet rs = stmt.executeQuery("SELECT nameuser, job, age from users");
+            String sqlCommand = "DELETE FROM users WHERE nameuser=?";
+            PreparedStatement preparedStatement = connection.prepareStatement(sqlCommand);
+            preparedStatement.setString(1, nameuser);
+            preparedStatement.executeUpdate();
 
-            while(rs.next()){
-                pw.println(rs.getString("nameuser"));
-                pw.println(rs.getString("job"));
-                pw.println(rs.getString("age"));
-            }
-
-            stmt.close();
+            preparedStatement.close();
             connection.close();
         } catch (SQLException e){
             e.printStackTrace();
         }
-
+        pw.println("Deleted: "+nameuser);
     }
 
 }
