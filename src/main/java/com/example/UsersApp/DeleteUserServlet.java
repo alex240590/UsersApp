@@ -9,6 +9,8 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.*;
 
+import static com.example.UsersApp.UserDAO.deleteUser;
+
 
 public class DeleteUserServlet extends HttpServlet {
 
@@ -18,33 +20,13 @@ public class DeleteUserServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        response.setContentType("text/html");
-        PrintWriter pw = response.getWriter();
-        String nameuser = request.getParameter("nameuser");
-
         try {
-            Class.forName("org.postgresql.Driver");
+            DBConnection.getDBConncection();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
         }
-        catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }
+        UserDAO.deleteUser(request, response);
 
-        try {
-            Connection connection = DriverManager.getConnection("jdbc:postgresql://localhost:5432/java_ee_db",
-                    "postgres",
-                    "root");
-
-            String sqlCommand = "DELETE FROM users WHERE nameuser=?";
-            PreparedStatement preparedStatement = connection.prepareStatement(sqlCommand);
-            preparedStatement.setString(1, nameuser);
-            preparedStatement.executeUpdate();
-
-            preparedStatement.close();
-            connection.close();
-        } catch (SQLException e){
-            e.printStackTrace();
-        }
-        pw.println("Deleted: "+nameuser);
     }
 
 }

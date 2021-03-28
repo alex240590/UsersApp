@@ -9,6 +9,8 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.*;
 
+import static com.example.UsersApp.UserDAO.showUserList;
+
 
 public class UserServlet extends HttpServlet {
 
@@ -18,34 +20,13 @@ public class UserServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        PrintWriter pw = response.getWriter();
-
         try {
-            Class.forName("org.postgresql.Driver");
+            DBConnection.getDBConncection();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
         }
-        catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }
+        showUserList(response);
 
-        try {
-            Connection connection = DriverManager.getConnection("jdbc:postgresql://localhost:5432/java_ee_db",
-                    "postgres",
-                    "root");
-
-            Statement stmt = connection.createStatement();
-            ResultSet rs = stmt.executeQuery("SELECT nameuser, job, age from users");
-
-            while(rs.next()){
-                pw.println(rs.getString("nameuser"));
-                pw.println(rs.getString("job"));
-                pw.println(rs.getString("age"));
-            }
-
-            stmt.close();
-            connection.close();
-        } catch (SQLException e){
-            e.printStackTrace();
-        }
 
     }
 
