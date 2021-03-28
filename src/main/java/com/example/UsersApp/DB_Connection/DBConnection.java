@@ -13,9 +13,9 @@ public class DBConnection {
             e.printStackTrace();
         }
 
-        Connection connection = DriverManager.getConnection("jdbc:postgresql://localhost:5432/java_ee_db",
+        Connection connection = DriverManager.getConnection("jdbc:postgresql://192.168.43.52:5432/postgres",
                     "postgres",
-                    "root");
+                    "1234567");
 
         return connection;
     }
