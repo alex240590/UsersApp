@@ -1,4 +1,6 @@
-package com.example.UsersApp;
+package com.example.UsersApp.DAO;
+
+import com.example.UsersApp.DB_Connection.DBConnection;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;

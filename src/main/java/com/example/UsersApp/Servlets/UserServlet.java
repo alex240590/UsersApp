@@ -1,18 +1,18 @@
-package com.example.UsersApp;
+package com.example.UsersApp.Servlets;
+
+import com.example.UsersApp.DB_Connection.DBConnection;
 
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.sql.*;
 
-import static com.example.UsersApp.UserDAO.addUser;
+import static com.example.UsersApp.DAO.UserDAO.showUserList;
 
 
-public class AddUserServlet extends HttpServlet {
+public class UserServlet extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException {
 
@@ -25,7 +25,8 @@ public class AddUserServlet extends HttpServlet {
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
-        UserDAO.addUser(request, response);
+        showUserList(response);
+
 
     }
 

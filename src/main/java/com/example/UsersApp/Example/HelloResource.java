@@ -1,4 +1,4 @@
-package com.example.UsersApp;
+package com.example.UsersApp.Example;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;

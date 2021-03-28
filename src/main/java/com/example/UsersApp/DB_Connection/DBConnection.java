@@ -1,4 +1,4 @@
-package com.example.UsersApp;
+package com.example.UsersApp.DB_Connection;
 import javax.servlet.http.HttpServletResponse;
 import java.sql.*;
 
