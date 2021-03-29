@@ -97,58 +97,58 @@ public class UserDAO {
         pw.println("Deleted: "+nameuser);
     }
 
-    public static int showUserNumber() throws IOException {
+//    public static int showUserNumber() throws IOException {
+//
+//        int numberOfUsers = 0;
+//
+//        Connection connection = null;
+//        try {
+//            connection = DBConnection.getDBConncection();
+//        } catch (SQLException throwables) {
+//            throwables.printStackTrace();
+//        }
+//
+//        try {
+//            assert connection != null;
+//            Statement stmt = connection.createStatement();
+//            ResultSet rs = stmt.executeQuery("SELECT COUNT(*) AS count FROM users");
+//
+//            numberOfUsers = Integer.parseInt(rs.getString("count"));
+//            stmt.close();
+//            connection.close();
+//        } catch (SQLException e) {
+//            e.printStackTrace();
+//        }
+//        return numberOfUsers;
+//    }
 
-        int numberOfUsers = 0;
-
-        Connection connection = null;
-        try {
-            connection = DBConnection.getDBConncection();
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
-        }
-
-        try {
-            assert connection != null;
-            Statement stmt = connection.createStatement();
-            ResultSet rs = stmt.executeQuery("SELECT COUNT(*) AS count FROM users");
-
-            numberOfUsers = Integer.parseInt(rs.getString("count"));
-            stmt.close();
-            connection.close();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return numberOfUsers;
-    }
-
-    public static void addUser() throws IOException {
-
-        String nameuser = "nameuser";
-        String job = "job";
-        int age = 10;
-
-        Connection connection = null;
-        try {
-            connection = DBConnection.getDBConncection();
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
-        }
-
-        try {
-            assert connection != null;
-            String sqlCommand = "INSERT INTO users (nameuser, job, age) Values (?, ?, ?)";
-            PreparedStatement preparedStatement = connection.prepareStatement(sqlCommand);
-            preparedStatement.setString(1, nameuser);
-            preparedStatement.setString(2, job);
-            preparedStatement.setInt(3, age);
-            preparedStatement.executeUpdate();
-
-            preparedStatement.close();
-            connection.close();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+//    public static void addUser() throws IOException {
+//
+//        String nameuser = "nameuser";
+//        String job = "job";
+//        int age = 10;
+//
+//        Connection connection = null;
+//        try {
+//            connection = DBConnection.getDBConncection();
+//        } catch (SQLException throwables) {
+//            throwables.printStackTrace();
+//        }
+//
+//        try {
+//            assert connection != null;
+//            String sqlCommand = "INSERT INTO users (nameuser, job, age) Values (?, ?, ?)";
+//            PreparedStatement preparedStatement = connection.prepareStatement(sqlCommand);
+//            preparedStatement.setString(1, nameuser);
+//            preparedStatement.setString(2, job);
+//            preparedStatement.setInt(3, age);
+//            preparedStatement.executeUpdate();
+//
+//            preparedStatement.close();
+//            connection.close();
+//        } catch (SQLException e) {
+//            e.printStackTrace();
+//        }
     }
 
 }
