@@ -39,9 +39,10 @@ public class UserDAO {
     }
 
     public static void addUser(HttpServletRequest request, HttpServletResponse response) throws IOException {
+
         response.setContentType("text/html");
         PrintWriter pw = response.getWriter();
-        String nameuser = request.getParameter("nameuser");
+        String nameuser = request.getParameter("name");
         String job = request.getParameter("job");
         int age = Integer.parseInt(request.getParameter("age"));
 
