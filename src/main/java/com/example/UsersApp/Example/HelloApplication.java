@@ -1,4 +1,4 @@
-package com.example.UsersApp;
+package com.example.UsersApp.Example;
 
 import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;

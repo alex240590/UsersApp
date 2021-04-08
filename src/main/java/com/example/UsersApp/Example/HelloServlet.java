@@ -1,4 +1,4 @@
-package com.example.UsersApp;
+package com.example.UsersApp.Example;
 
 import java.io.*;
 import javax.servlet.http.*;
