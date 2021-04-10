@@ -23,7 +23,11 @@
     </p>
 
     <p><input type="submit" value="Add user">
-        <input type="reset" value="Clear"></p>
+        <input type="reset" value="Clear">
+        <a href="index.jsp">
+            <input type="button" value="Main page" />
+        </a>
+    </p>
 </form>
 </body>
 </html>

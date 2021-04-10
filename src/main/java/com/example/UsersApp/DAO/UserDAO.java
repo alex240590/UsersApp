@@ -73,7 +73,7 @@ public class UserDAO {
     public static void deleteUser(HttpServletRequest request, HttpServletResponse response) throws IOException {
         response.setContentType("text/html");
         PrintWriter pw = response.getWriter();
-        String nameuser = request.getParameter("nameuser");
+        String nameuser = request.getParameter("name");
 
         Connection connection = null;
         try {

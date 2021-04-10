@@ -11,6 +11,6 @@
 <%--<a href="hello-servlet">Hello Servlet</a>--%>
 <a href="/UsersApp/users">List of Users</a>
 <a href="/UsersApp/add.jsp">Add new user</a>
-<a href="/UsersApp/deleteuser">Delete user</a>
+<a href="/UsersApp/delete.jsp">Delete user</a>
 </body>
 </html>

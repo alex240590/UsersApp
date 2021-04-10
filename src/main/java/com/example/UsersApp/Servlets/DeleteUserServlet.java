@@ -13,7 +13,14 @@ import java.sql.*;
 
 public class DeleteUserServlet extends HttpServlet {
 
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+        try {
+            DBConnection.getDBConncection();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        UserDAO.deleteUser(request, response);
 
     }
 
