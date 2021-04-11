@@ -13,6 +13,7 @@ public class UserDAO {
     public static void showUserList(HttpServletResponse response) throws IOException {
         PrintWriter pw = response.getWriter();
 
+
         Connection connection = null;
         try {
             connection = DBConnection.getDBConncection();
@@ -27,8 +28,11 @@ public class UserDAO {
 
             while (rs.next()) {
                 pw.println(rs.getString("nameuser"));
+                String name = rs.getString("nameuser");
                 pw.println(rs.getString("job"));
+                String job = rs.getString("job");
                 pw.println(rs.getString("age"));
+                String age = rs.getString("age");
             }
 
             stmt.close();
