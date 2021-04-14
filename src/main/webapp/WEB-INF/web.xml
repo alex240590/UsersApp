@@ -27,5 +27,13 @@
         <servlet-name>DeleteUserServlet</servlet-name>
         <url-pattern>/deleteuser</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>Kafka</servlet-name>
+        <servlet-class>com.example.UsersApp.Servlets.Kafka</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Kafka</servlet-name>
+        <url-pattern>/kafka</url-pattern>
+    </servlet-mapping>
 
 </web-app>

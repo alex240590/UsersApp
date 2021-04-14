@@ -75,6 +75,17 @@ public class UserDAO {
         pw.println("Added: "+nameuser+" "+job+" "+age);
     }
 
+    public static void kafka(HttpServletRequest request, HttpServletResponse response) throws IOException {
+
+        response.setContentType("text/html");
+        PrintWriter pw = response.getWriter();
+        String nameuser = request.getParameter("name");
+        response.sendRedirect("yandex.ru");
+
+
+        pw.println("Sent: "+nameuser);
+    }
+
     public static void deleteUser(HttpServletRequest request, HttpServletResponse response) throws IOException {
         response.setContentType("text/html");
         PrintWriter pw = response.getWriter();
