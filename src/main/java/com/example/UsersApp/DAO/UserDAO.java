@@ -78,12 +78,12 @@ public class UserDAO {
     public static void kafka(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
         response.setContentType("text/html");
-        PrintWriter pw = response.getWriter();
-        String nameuser = request.getParameter("name");
-        response.sendRedirect("yandex.ru");
+//        PrintWriter pw = response.getWriter();
+        String nameuser=request.getParameter("name");
+        response.sendRedirect("https://www.google.co.in/#q="+nameuser);
 
 
-        pw.println("Sent: "+nameuser);
+//        pw.println("Sent: "+nameuser);
     }
 
     public static void deleteUser(HttpServletRequest request, HttpServletResponse response) throws IOException {
