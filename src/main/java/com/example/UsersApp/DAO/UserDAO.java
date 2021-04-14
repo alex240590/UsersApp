@@ -49,7 +49,7 @@ public class UserDAO {
         String nameuser = request.getParameter("name");
         String job = request.getParameter("job");
         int age = Integer.parseInt(request.getParameter("age"));
-        response.sendRedirect();
+//        response.sendRedirect();
 
         Connection connection = null;
         try {
