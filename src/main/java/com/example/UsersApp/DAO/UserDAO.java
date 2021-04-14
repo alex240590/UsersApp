@@ -79,8 +79,8 @@ public class UserDAO {
 
         response.setContentType("text/html");
 //        PrintWriter pw = response.getWriter();
-        String nameuser=request.getParameter("name");
-        response.sendRedirect("https://www.google.co.in/#q="+nameuser);
+//        String nameuser=request.getParameter("name");
+        response.sendRedirect("localhost:9092");
 
 
 //        pw.println("Sent: "+nameuser);
